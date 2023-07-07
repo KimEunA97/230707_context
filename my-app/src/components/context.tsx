@@ -49,6 +49,7 @@ function Message() {
   }, [value])
   return (
     <div>
+      <div>a: {arr.a}</div>
       Received:
       {Object.entries(value).map(([key, arr]) => (
         <div key={key}>
