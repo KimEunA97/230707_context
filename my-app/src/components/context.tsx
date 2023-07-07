@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 const MyContext = createContext<MyContextType>({});
 
 
@@ -40,6 +40,13 @@ function GrandChild() {
 
 function Message() {
   const value = useContext(MyContext);
+  useEffect(() => {
+    console.log('마운트', value);
+
+    return () => {
+      console.log('언마운트', value);
+    }
+  }, [value])
   return (
     <div>
       Received:
