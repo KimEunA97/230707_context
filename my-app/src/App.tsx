@@ -1,12 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Context from './components/context';
+import React, { createContext, useContext } from 'react';
+
+interface MyContextType {
+  [key: string]: string[];
+}
+
+const MyContext = createContext<MyContextType>({});
+
+const arr: MyContextType = {
+  a: ['a'],
+  b: ['b'],
+  c: ['c'],
+};
 
 function App() {
   return (
+    <MyContext.Provider value={arr}>
+      <GrandParent />
+    </MyContext.Provider>
+  );
+}
+
+function GrandParent() {
+  return <Parent />;
+}
+
+function Parent() {
+  return <Child />;
+}
+
+function Child() {
+  return <GrandChild />;
+}
+
+function GrandChild() {
+  return <Message />;
+}
+
+function Message() {
+  const value = useContext(MyContext);
+  return (
     <div>
-      <Context></Context>
+      Received:
+      {Object.entries(value).map(([key, arr]) => (
+        <div key={key}>
+          {key}: {arr.join(', ')}
+        </div>
+      ))}
     </div>
   );
 }
