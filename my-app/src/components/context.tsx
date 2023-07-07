@@ -14,7 +14,7 @@ const arr = {
 
 }
 
-function App() {
+function Context() {
   return (
     <MyContext.Provider value={arr}>
       <GrandParent />
@@ -52,4 +52,4 @@ function Message() {
   );
 }
 
-export default App;
+export default Context;
