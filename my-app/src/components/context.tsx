@@ -47,9 +47,10 @@ function Message() {
       console.log('언마운트', value);
     }
   }, [value])
+  const aa: string[] = [...arr.a]
   return (
     <div>
-      <div>a: {arr.a}</div>
+      <div>a: {aa}</div>
       Received:
       {Object.entries(value).map(([key, arr]) => (
         <div key={key}>
