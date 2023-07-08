@@ -1,18 +1,20 @@
-import React, { createContext, useContext } from 'react';
+import { ReactNode, createContext, useContext, useEffect } from 'react';
+const MyContext = createContext<MyContextType>({});
+
 
 interface MyContextType {
   [key: string]: string[];
 }
 
-const MyContext = createContext<MyContextType>({});
+const arr = {
 
-const arr: MyContextType = {
   a: ['a'],
   b: ['b'],
   c: ['c'],
-};
 
-function App() {
+}
+
+function Context() {
   return (
     <MyContext.Provider value={arr}>
       <GrandParent />
@@ -38,8 +40,19 @@ function GrandChild() {
 
 function Message() {
   const value = useContext(MyContext);
+  useEffect(() => {
+    console.log('마운트', value);
+
+    return () => {
+      console.log('언마운트');
+    }
+  }, [])
+
+
+  const aa : string = arr.a[0];
   return (
     <div>
+      <div>이것이오 a: {aa}</div>
       Received:
       {Object.entries(value).map(([key, arr]) => (
         <div key={key}>
@@ -50,4 +63,4 @@ function Message() {
   );
 }
 
-export default App;
+export default Context;
