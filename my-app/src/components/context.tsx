@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from 'react';
+import { ReactNode, createContext, useContext, useEffect } from 'react';
 const MyContext = createContext<MyContextType>({});
 
 
@@ -47,7 +47,7 @@ function Message() {
       console.log('언마운트', value);
     }
   }, [value])
-  const aa: string[] = [...arr.a]
+  const aa = arr.a.join(',');
   return (
     <div>
       <div>a: {aa}</div>
