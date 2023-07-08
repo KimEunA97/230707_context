@@ -49,7 +49,7 @@ function Message() {
   }, [])
 
 
-  const aa : ReactNode = arr.a;
+  const aa : string[] = arr.a;
   return (
     <div>
       <div>이것이오 a: {aa}</div>
