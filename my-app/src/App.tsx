@@ -4,8 +4,6 @@ import { MyContextType } from './types/types';
 
 export const MyContext = createContext<MyContextType>({});
 
-
-
 const arr: MyContextType = {
 
   a: ['a'],

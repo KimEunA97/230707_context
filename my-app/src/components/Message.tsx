@@ -1,18 +1,16 @@
 import React, { createContext, useEffect, useContext } from "react";
-import { MyContextType } from "../types/types";
 import { MyContext } from "../App";
 
-export default function Message({ arr }) {
+export default function Message() {
 
 
 
 
   const value = useContext(MyContext);
 
+  console.log(value)
 
   return (
-    <MyContext.Consumer>
-      <div>{arr}</div>
-    </MyContext.Consumer>
+    <div></div>
   );
 }
