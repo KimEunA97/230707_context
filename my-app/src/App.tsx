@@ -6,9 +6,9 @@ export const MyContext = createContext<MyContextType>({});
 
 const arr: MyContextType = {
 
-  a: ['a'],
-  b: ['b'],
-  c: ['c'],
+  a: ['a입니다'],
+  b: ['b입니다'],
+  c: ['c입니다'],
 
 }
 

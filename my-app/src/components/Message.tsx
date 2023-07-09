@@ -11,6 +11,6 @@ export default function Message() {
   console.log(value)
 
   return (
-    <div></div>
+    <div>{value.a}</div>
   );
 }
