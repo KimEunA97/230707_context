@@ -10,7 +10,15 @@ export default function Message() {
 
   console.log(value)
 
+  const AB = "1"
+
+  function plus() {
+
+    return value.a + AB
+
+  }
+
   return (
-    <div>{value.a}</div>
+    <div>{plus()}</div>
   );
 }
